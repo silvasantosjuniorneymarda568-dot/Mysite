@@ -1,0 +1,191 @@
+/* ===========================
+   CSS 1A - BASE DO SITE
+=========================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html,body{
+    width:100%;
+    height:100%;
+    overflow:hidden;
+    font-family:'Inter',sans-serif;
+    background:#000;
+    color:#fff;
+}
+
+/* Tela inicial */
+
+#intro{
+    position:fixed;
+    inset:0;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:#000;
+    z-index:999;
+    cursor:pointer;
+    transition:opacity 1s ease;
+}
+
+#enterText{
+    font-size:clamp(55px,9vw,115px);
+    font-weight:700;
+    letter-spacing:2px;
+    color:#fff;
+    text-align:center;
+    line-height:1.15;
+    user-select:none;
+    transition:.35s;
+    text-shadow:
+    0 0 8px rgba(255,255,255,.15),
+    0 0 25px rgba(255,255,255,.12);
+}
+
+#enterText:hover{
+    transform:scale(1.04);
+}
+
+/* Tela escura da transição */
+
+#overlay{
+    position:fixed;
+    inset:0;
+    background:#000;
+    opacity:0;
+    pointer-events:none;
+    transition:opacity 1s;
+    z-index:998;
+}
+
+/* Página principal */
+
+#profilePage{
+    position:fixed;
+    inset:0;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    opacity:0;
+    transform:scale(.96);
+    transition:
+    opacity 1s ease,
+    transform 1s ease;
+}
+
+/* Partículas */
+
+.particles{
+    position:absolute;
+    inset:0;
+    pointer-events:none;
+}
+
+/* Fumaça */
+
+#smoke{
+    position:absolute;
+    inset:-20%;
+    opacity:.45;
+    filter:blur(55px);
+    pointer-events:none;
+    z-index:0;
+  }
+/* Card */
+
+.card{
+    position:relative;
+    width:520px;
+    max-width:92%;
+    padding:45px 35px;
+    border-radius:35px;
+    background:rgba(20,20,20,.72);
+    backdrop-filter:blur(22px);
+    -webkit-backdrop-filter:blur(22px);
+    border:1px solid rgba(255,255,255,.08);
+    box-shadow:
+        0 0 40px rgba(255,255,255,.05),
+        inset 0 0 30px rgba(255,255,255,.03);
+    z-index:2;
+    animation:cardShow 1s ease;
+}
+
+@keyframes cardShow{
+    from{
+        opacity:0;
+        transform:translateY(25px) scale(.95);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0) scale(1);
+    }
+}
+/* Card */
+
+.profile-card{
+    position:relative;
+    z-index:2;
+
+    width:430px;
+    max-width:92vw;
+
+    background:rgba(20,20,20,.58);
+    backdrop-filter:blur(18px);
+    -webkit-backdrop-filter:blur(18px);
+
+    border:1px solid rgba(255,255,255,.08);
+    border-radius:34px;
+
+    padding:42px 32px;
+
+    box-shadow:
+    0 0 80px rgba(255,255,255,.04),
+    inset 0 0 0 1px rgba(255,255,255,.04);
+
+    text-align:center;
+
+    animation:cardEnter 1s ease forwards;
+}
+
+@keyframes cardEnter{
+
+    0%{
+        opacity:0;
+        transform:translateY(40px) scale(.95);
+    }
+
+    100%{
+        opacity:1;
+        transform:translateY(0) scale(1);
+    }
+
+}
+/* Card principal */
+
+.card{
+    position:relative;
+    z-index:2;
+
+    width:420px;
+    max-width:92vw;
+
+    background:rgba(25,25,25,.55);
+    backdrop-filter:blur(18px);
+
+    border:1px solid rgba(255,255,255,.08);
+
+    border-radius:35px;
+
+    padding:45px 35px;
+
+    box-shadow:
+    0 0 40px rgba(255,255,255,.05),
+    inset 0 0 1px rgba(255,255,255,.4);
+
+    text-align:center;
+
+    overflow:hidden;
+  }
