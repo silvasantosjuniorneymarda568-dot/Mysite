@@ -190,3 +190,165 @@ body{
     z-index:10;
 
 }
+/* =====================================================
+   ANIMAÇÕES
+===================================================== */
+
+@keyframes floatCard{
+
+    0%{
+        transform:translateY(0px);
+    }
+
+    50%{
+        transform:translateY(-6px);
+    }
+
+    100%{
+        transform:translateY(0px);
+    }
+
+}
+
+.profile-card{
+
+    animation:
+    cardOpen .8s ease,
+    floatCard 6s ease-in-out infinite;
+
+}
+
+/* =====================================================
+   BRILHO DO CARD
+===================================================== */
+
+.profile-card::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    border-radius:32px;
+
+    background:
+
+    linear-gradient(
+        120deg,
+        transparent,
+        rgba(255,255,255,.04),
+        transparent
+    );
+
+    opacity:.4;
+
+    pointer-events:none;
+
+}
+
+/* =====================================================
+   SCROLLBAR
+===================================================== */
+
+::-webkit-scrollbar{
+
+    width:0;
+
+}
+
+/* =====================================================
+   RESPONSIVIDADE
+===================================================== */
+
+@media(max-width:700px){
+
+    .profile-card{
+
+        width:92vw;
+
+        padding:32px 24px;
+
+        border-radius:26px;
+
+    }
+
+    .avatar{
+
+        width:95px;
+
+        height:95px;
+
+    }
+
+    .profile-card h2{
+
+        font-size:24px;
+
+    }
+
+    .socials{
+
+        gap:14px;
+
+    }
+
+    .socials a{
+
+        width:50px;
+
+        height:50px;
+
+    }
+
+    .socials img{
+
+        width:22px;
+
+        height:22px;
+
+    }
+
+    #enterText{
+
+        font-size:34px;
+
+    }
+
+}
+
+/* =====================================================
+   TRANSIÇÕES
+===================================================== */
+
+a,
+button,
+img{
+
+    transition:.3s;
+
+}
+
+button{
+
+    outline:none;
+
+}
+
+button:active{
+
+    transform:scale(.95);
+
+}
+
+img{
+
+    user-select:none;
+
+    -webkit-user-drag:none;
+
+}
+
+/* =====================================================
+   FIM DO CSS
+===================================================== */
