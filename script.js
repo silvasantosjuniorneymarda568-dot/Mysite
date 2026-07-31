@@ -52,13 +52,12 @@ intro.addEventListener("click",()=>{
     setTimeout(()=>{
         showSmoke();
     },350);
-
 });
 /* ===== Script 1C ===== */
 
 const audio = document.getElementById("audio");
 const play = document.getElementById("play");
-
+jo
 if (audio && play) {
 
     play.addEventListener("click", () => {
@@ -85,23 +84,18 @@ function createSnow() {
     const snow = document.createElement("div");
 
     snow.className = "snow";
-
     snow.innerHTML = "❄";
 
     snow.style.left = Math.random() * window.innerWidth + "px";
-
-    snow.style.animationDuration =
-        (5 + Math.random() * 6) + "s";
-
-    snow.style.fontSize =
-        (10 + Math.random() * 18) + "px";
+    snow.style.fontSize = (6 + Math.random() * 10) + "px";
+    snow.style.opacity = Math.random();
+    snow.style.animationDuration = (6 + Math.random() * 5) + "s";
 
     document.body.appendChild(snow);
 
     setTimeout(() => {
         snow.remove();
     }, 12000);
-
 }
 
 setInterval(createSnow, 180);
