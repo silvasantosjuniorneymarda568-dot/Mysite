@@ -1,107 +1,144 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Meu Site</title>
+<title>oliveira</title>
 
-<style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
-body{
-    background:#000;
-    overflow:hidden;
-    width:100vw;
-    height:100vh;
-
-    display:flex;
-    justify-content:center;
-    align-items:center;
-
-    font-family:Arial, sans-serif;
-}
-
-h1{
-    color:#ffffff;
-    font-size:78px;
-    font-weight:bold;
-    z-index:100;
-    user-select:none;
-    cursor:pointer;
-    animation:pulse 1.5s infinite;
-}
-
-.snow{
-    position:fixed;
-    top:-60px;
-    color:#ffffff;
-    font-size:22px;
-    pointer-events:none;
-    z-index:1;
-    animation-name:fall;
-    animation-timing-function:linear;
-    animation-iteration-count:infinite;
-}
-
-@keyframes pulse{
-
-0%{opacity:.65;}
-
-50%{opacity:1;}
-
-100%{opacity:.65;}
-
-}
-
-@keyframes fall{
-
-0%{
-transform:translateY(-80px) rotate(0deg);
-}
-
-100%{
-transform:translateY(calc(100vh + 100px)) rotate(360deg);
-}
-
-}
-
-</style>
+<link rel="stylesheet" href="style.css">
 
 </head>
 
 <body>
 
-<h1>click to enter...</h1>
+<div id="intro">
 
-<script>
+    <div class="snow"></div>
 
-for(let i=0;i<35;i++){
+    <h1 id="enterText">
+        click to enter...
+    </h1>
 
-let snow=document.createElement("div");
+</div>
 
-snow.className="snow";
+<div id="overlay"></div>
 
-snow.innerHTML="❄";
+<main id="profilePage">
 
-snow.style.left=Math.random()*100+"vw";
+    <div id="smoke"></div>
 
-snow.style.animationDuration=(6+Math.random()*6)+"s";
+    <div class="particles"></div>
 
-snow.style.animationDelay=(-Math.random()*12)+"s";
+    <div class="profile-card">
 
-snow.style.fontSize=(14+Math.random()*20)+"px";
+        <img
+        src="avatar.jpg"
+        class="avatar"
+        alt="Avatar">
 
-document.body.appendChild(snow);
+        <h2>
+            oliveira '.
+        </h2>
 
-}
+        <span class="tag">
+            f.
+        </span>
 
-</script>
+        <div class="line"></div>
+
+        <div class="info">
+
+            <div class="row">
+
+                <span>📍</span>
+
+                <span>Paz.</span>
+
+            </div>
+
+        </div>
+
+        <div class="socials">
+
+            <a href="#" title="Roblox">
+                <img src="icons/roblox.svg">
+            </a>
+
+            <a href="#" title="Spotify">
+                <img src="icons/spotify.svg">
+            </a>
+
+            <a href="#" title="Instagram">
+                <img src="icons/instagram.svg">
+            </a>
+
+            <a href="#" title="Discord">
+                <img src="icons/discord.svg">
+            </a>
+
+        </div>
+
+        <div class="views">
+
+            👁️
+            <span id="views">
+                0
+            </span>
+
+        </div>
+
+        <div class="music-player">
+
+            <img
+            src="cover.jpg"
+            class="cover">
+
+            <div class="music-info">
+
+                <h3>
+                    love u right.
+                </h3>
+
+                <p>
+                    Playboi Carti
+                </p>
+
+            </div>
+
+            <button id="play">
+
+                ▶
+
+            </button>
+
+        </div>
+
+        <audio id="audio">
+
+            <source
+            src="music.mp3"
+            type="audio/mpeg">
+
+        </audio>
+
+        <small>
+
+            feito com ♡ por oliveira '.
+
+        </small>
+
+    </div>
+
+</main>
+
+<script src="script.js"></script>
 
 </body>
 </html>
