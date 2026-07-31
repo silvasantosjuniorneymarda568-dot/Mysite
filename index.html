@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Meu Site</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    background:#000;
+    overflow:hidden;
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-family:Arial,sans-serif;
+}
+
+h1{
+    color:white;
+    font-size:48px;
+    animation:pulse 1.5s infinite;
+    z-index:10;
+    cursor:pointer;
+}
+
+.star{
+    position:absolute;
+    color:#ffb6c1;
+    font-size:20px;
+    animation:fall linear infinite;
+}
+
+@keyframes pulse{
+    0%{opacity:.4;}
+    50%{opacity:1;}
+    100%{opacity:.4;}
+}
+
+@keyframes fall{
+    from{
+        transform:translateY(-10vh);
+    }
+    to{
+        transform:translateY(110vh);
+    }
+}
+</style>
+</head>
+
+<body>
+
+<h1>click to enter...</h1>
+
+<script>
+for(let i=0;i<30;i++){
+    let s=document.createElement("div");
+    s.className="star";
+    s.innerHTML="❄";
+    s.style.left=Math.random()*100+"vw";
+    s.style.animationDuration=(3+Math.random()*5)+"s";
+    s.style.animationDelay=Math.random()*5+"s";
+    document.body.appendChild(s);
+}
+</script>
+
+</body>
+</html>
