@@ -3,7 +3,6 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Meu Site</title>
 
 <style>
@@ -16,6 +15,7 @@
 body{
     background:#000;
     overflow:hidden;
+    width:100vw;
     height:100vh;
     display:flex;
     justify-content:center;
@@ -24,19 +24,19 @@ body{
 }
 
 h1{
-    color:white;
-    font-size:48px;
-    animation:pulse 1.5s infinite;
-    z-index:10;
+    color:#fff;
+    font-size:58px;
+    font-weight:bold;
     cursor:pointer;
     user-select:none;
+    z-index:10;
+    animation:pulse 1.5s infinite;
 }
 
 .snow{
     position:fixed;
-    top:-30px;
-    color:#eaf8ff;
-    text-shadow:0 0 8px #ffffff;
+    top:-50px;
+    color:#eef8ff;
     font-size:18px;
     pointer-events:none;
     animation-name:fall;
@@ -52,10 +52,11 @@ h1{
 
 @keyframes fall{
     from{
-        transform:translateY(-50px);
+        transform:translateY(0);
     }
+
     to{
-        transform:translateY(calc(100vh + 50px));
+        transform:translateY(calc(100vh + 60px));
     }
 }
 </style>
@@ -67,19 +68,27 @@ h1{
 <h1>click to enter...</h1>
 
 <script>
-for(let i=0;i<35;i++){
+
+for(let i=0;i<30;i++){
 
     let snow=document.createElement("div");
+
     snow.className="snow";
+
     snow.innerHTML="❄";
 
     snow.style.left=Math.random()*100+"vw";
-    snow.style.animationDuration=(5+Math.random()*6)+"s";
-    snow.style.animationDelay=(Math.random()*5)+"s";
+
+    snow.style.animationDuration=(5+Math.random()*5)+"s";
+
+    snow.style.animationDelay=(-Math.random()*10)+"s";
+
     snow.style.fontSize=(14+Math.random()*16)+"px";
 
     document.body.appendChild(snow);
+
 }
+
 </script>
 
 </body>
