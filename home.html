@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
 
 <meta charset="UTF-8">
@@ -16,77 +17,78 @@
 
 </head>
 
-<body>
+<body class="home">
 
-<div id="backgroundSmoke"></div>
+<video id="smokeVideo" autoplay muted loop playsinline>
+    <source src="assets/smoke.mp4" type="video/mp4">
+</video>
 
-<div class="snow-container"></div>
+<canvas id="snow"></canvas>
 
 <div class="profile-card">
 
-<img src="avatar.jpg" class="avatar">
+    <img src="avatar.jpg" class="avatar" alt="Avatar">
 
-<h2>oliveira '.</h2>
+    <h2>oliveira '.</h2>
 
-<span class="tag">f.</span>
+    <span class="tag">f.</span>
 
-<div class="line"></div>
+    <div class="line"></div>
 
-<div class="info">
-📍 Paz.
-</div>
+    <div class="info">
+        <span>📍</span>
+        <span>Paz.</span>
+    </div>
 
-<div class="socials">
+    <div class="socials">
 
-<a href="https://www.roblox.com/share?code=3e518e715faaba4b9e2af0c7423d7964&type=Profile&source=ProfileShare&stamp=1785534411378" target="_blank">
-<img src="icons/roblox.svg">
-</a>
+        <a href="https://www.roblox.com/share?code=3e518e715faaba4b9e2af0c7423d7964&type=Profile&source=ProfileShare&stamp=1785534411378" target="_blank">
+            <img src="icons/roblox.svg" alt="Roblox">
+        </a>
 
-<a href="https://open.spotify.com/user/31qbbyqryxdvbuwier5khdlqx2ta?si=Wd_WEnDpQfal6T87jrDiow&utm_source=copy-link" target="_blank">
-<img src="icons/spotify.svg">
-</a>
+        <a href="https://open.spotify.com/user/31qbbyqryxdvbuwier5khdlqx2ta?si=Wd_WEnDpQfal6T87jrDiow&utm_source=copy-link" target="_blank">
+            <img src="icons/spotify.svg" alt="Spotify">
+        </a>
 
-<a href="https://www.instagram.com/f.oliveirazzx?igsh=MWtndTJhd216NHh4Yg==" target="_blank">
-<img src="icons/instagram.svg">
-</a>
+        <a href="https://www.instagram.com/f.oliveirazzx?igsh=MWtndTJhd216NHh4Yg==" target="_blank">
+            <img src="icons/instagram.svg" alt="Instagram">
+        </a>
 
-<a href="https://Discordapp.com/users/1485067650177699871" target="_blank">
-<img src="icons/discord.svg">
-</a>
+        <a href="https://discord.com/users/1485067650177699871" target="_blank">
+            <img src="icons/discord.svg" alt="Discord">
+        </a>
 
-</div>
+    </div>
 
-<div class="views">
-👁️ <span id="views">0</span>
-</div>
+    <div class="views">
+        👁️ <span id="views">0</span>
+    </div>
 
-<div class="music-player">
+    <div class="music-player">
 
-<img src="cover.jpg" class="cover">
+        <img src="cover.jpg" class="cover" alt="Capa">
 
-<div class="music-info">
+        <div class="music-info">
+            <h3>Evergreen</h3>
+            <p>Frank Ocean</p>
+        </div>
 
-<h3>Evergreen</h3>
+        <button id="play">▶</button>
 
-<p>Frank Ocean</p>
+    </div>
 
-</div>
+    <audio id="audio">
+        <source src="music.mp3" type="audio/mpeg">
+    </audio>
 
-<button id="play">▶</button>
-
-</div>
-
-<audio id="audio">
-<source src="music.mp3" type="audio/mpeg">
-</audio>
-
-<small>
-feito com ♡ por oliveira '.
-</small>
+    <small>
+        feito com ♡ por oliveira '.
+    </small>
 
 </div>
 
 <script src="script.js"></script>
 
 </body>
-  </html>
+
+</html>
