@@ -96,7 +96,7 @@ html,body{
   }
 /* Card */
 
-.card{
+.profile-card{
     position:relative;
     width:520px;
     max-width:92%;
@@ -165,7 +165,7 @@ html,body{
 }
 /* Card principal */
 
-.card{
+.profile-card{
     position:relative;
     z-index:2;
 
