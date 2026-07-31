@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Meu Site</title>
 
 <style>
@@ -28,31 +29,37 @@ h1{
     animation:pulse 1.5s infinite;
     z-index:10;
     cursor:pointer;
+    user-select:none;
 }
 
-.star{
-    position:absolute;
-    color:#dff6ff;
-    font-size:20px;
-    text-shadow:0 0 8px #ffffff, 0 0 15px #bfefff;
-    animation:fall linear infinite;
+.snow{
+    position:fixed;
+    top:-30px;
+    color:#eaf8ff;
+    text-shadow:0 0 8px #ffffff;
+    font-size:18px;
+    pointer-events:none;
+    animation-name:fall;
+    animation-timing-function:linear;
+    animation-iteration-count:infinite;
 }
 
 @keyframes pulse{
-    0%{opacity:.4;}
+    0%{opacity:.5;}
     50%{opacity:1;}
-    100%{opacity:.4;}
+    100%{opacity:.5;}
 }
 
 @keyframes fall{
     from{
-        transform:translateY(-10vh);
+        transform:translateY(-50px);
     }
     to{
-        transform:translateY(110vh);
+        transform:translateY(calc(100vh + 50px));
     }
 }
 </style>
+
 </head>
 
 <body>
@@ -60,14 +67,18 @@ h1{
 <h1>click to enter...</h1>
 
 <script>
-for(let i=0;i<30;i++){
-    let s=document.createElement("div");
-    s.className="star";
-    s.innerHTML="❄";
-    s.style.left=Math.random()*100+"vw";
-    s.style.animationDuration=(3+Math.random()*5)+"s";
-    s.style.animationDelay=Math.random()*5+"s";
-    document.body.appendChild(s);
+for(let i=0;i<35;i++){
+
+    let snow=document.createElement("div");
+    snow.className="snow";
+    snow.innerHTML="❄";
+
+    snow.style.left=Math.random()*100+"vw";
+    snow.style.animationDuration=(5+Math.random()*6)+"s";
+    snow.style.animationDelay=(-(Math.random()*11))+"s";
+    snow.style.fontSize=(14+Math.random()*16)+"px";
+
+    document.body.appendChild(snow);
 }
 </script>
 
