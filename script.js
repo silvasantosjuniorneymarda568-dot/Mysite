@@ -1,112 +1,176 @@
+/* ==========================================
+   CLICK TO ENTER
+========================================== */
+
 const intro = document.getElementById("intro");
-const profilePage = document.getElementById("profilePage");
 const overlay = document.getElementById("overlay");
-const enterText = document.getElementById("enterText");
 
-intro.addEventListener("click", () => {
+if(intro){
 
-    enterText.style.opacity = "0";
+    intro.addEventListener("click",()=>{
 
-    overlay.style.opacity = "1";
+        intro.style.pointerEvents="none";
 
-    setTimeout(() => {
+        intro.style.opacity="0";
 
-        intro.style.display = "none";
+        overlay.style.opacity="1";
 
-        profilePage.style.opacity = "1";
+        setTimeout(()=>{
 
-        profilePage.style.transform = "scale(1)";
+            window.location.href="home.html";
 
-        overlay.style.opacity = "0";
-
-    }, 1000);
-
-});
-/* ===== Script 1B ===== */
-
-function showSmoke(){
-
-    const smoke = document.getElementById("smoke");
-
-    if(!smoke) return;
-
-    smoke.animate([
-        {
-            opacity:0,
-            transform:"scale(.9)"
-        },
-        {
-            opacity:.45,
-            transform:"scale(1)"
-        }
-    ],{
-        duration:1000,
-        fill:"forwards",
-        easing:"ease-out"
-    });
-
-}
-
-intro.addEventListener("click",()=>{
-
-    setTimeout(()=>{
-        showSmoke();
-    },350);
-});
-/* ===== Script 1C ===== */
-
-const audio = document.getElementById("audio");
-const play = document.getElementById("play");
-jo
-if (audio && play) {
-
-    play.addEventListener("click", () => {
-
-        if (audio.paused) {
-
-            audio.play();
-            play.textContent = "⏸";
-
-        } else {
-
-            audio.pause();
-            play.textContent = "▶";
-
-        }
+        },900);
 
     });
 
 }
-/* ===== Script 1D ===== */
 
-function createSnow() {
+/* ==========================================
+   NEVE EM CANVAS
+========================================== */
 
-    const snow = document.createElement("div");
+const canvas = document.getElementById("snow");
 
-    snow.className = "snow";
-    snow.innerHTML = "❄";
+if(canvas){
 
-    snow.style.left = Math.random() * window.innerWidth + "px";
-    snow.style.fontSize = (6 + Math.random() * 10) + "px";
-    snow.style.opacity = Math.random();
-    snow.style.animationDuration = (6 + Math.random() * 5) + "s";
+const ctx = canvas.getContext("2d");
 
-    document.body.appendChild(snow);
+function resize(){
 
-    setTimeout(() => {
-        snow.remove();
-    }, 12000);
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
 }
 
-setInterval(createSnow, 180);
-/* ===== Script 1E ===== */
+resize();
 
-const views = document.getElementById("views");
+window.addEventListener("resize",resize);
 
-if (views) {
+const flakes=[];
 
-    let total = 2847;
+for(let i=0;i<180;i++){
 
-    views.textContent = total.toLocaleString("pt-BR");
+    flakes.push({
 
-      }
+        x:Math.random()*canvas.width,
+
+        y:Math.random()*canvas.height,
+
+        r:Math.random()*3+1,
+
+        s:Math.random()*2+0.5,
+
+        w:Math.random()*0.6
+
+    });
+
+}
+
+function draw(){
+
+    ctx.clearRect(0,0,canvas.width,canvas.height);
+
+    ctx.fillStyle="#ffffff";
+
+    flakes.forEach(f=>{
+
+        ctx.beginPath();
+
+        ctx.arc(f.x,f.y,f.r,0,Math.PI*2);
+
+        ctx.fill();
+
+        f.y+=f.s;
+
+        f.x+=Math.sin(f.y*0.01)*f.w;
+
+        if(f.y>canvas.height){
+
+            f.y=-20;
+
+            f.x=Math.random()*canvas.width;
+
+        }
+
+    });
+
+    requestAnimationFrame(draw);
+
+}
+
+draw();
+
+}
+
+/* ==========================================
+   PLAYER
+========================================== */
+
+const audio=document.getElementById("audio");
+const play=document.getElementById("play");
+
+if(audio && play){
+
+play.onclick=()=>{
+
+if(audio.paused){
+
+audio.play();
+
+play.innerHTML="⏸";
+
+}else{
+
+audio.pause();
+
+play.innerHTML="▶";
+
+}
+
+}
+
+}
+
+/* ==========================================
+   VISUALIZAÇÕES
+========================================== */
+
+const views=document.getElementById("views");
+
+if(views){
+
+let total=localStorage.getItem("oliveira_views");
+
+if(!total){
+
+total=2847;
+
+}
+
+total++;
+
+localStorage.setItem("oliveira_views",total);
+
+views.innerHTML=Number(total).toLocaleString("pt-BR");
+
+}
+
+/* ==========================================
+   HOVER DOS ÍCONES
+========================================== */
+
+document.querySelectorAll(".socials a").forEach(icon=>{
+
+icon.addEventListener("mouseenter",()=>{
+
+icon.style.transform="translateY(-5px) scale(1.08)";
+
+});
+
+icon.addEventListener("mouseleave",()=>{
+
+icon.style.transform="translateY(0) scale(1)";
+
+});
+
+});
