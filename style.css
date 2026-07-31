@@ -200,3 +200,33 @@ html,body{
 
     overflow:hidden;
   }
+/* ===== Neve ===== */
+
+.snow{
+    position:fixed;
+    top:-30px;
+    color:#fff;
+    pointer-events:none;
+    user-select:none;
+    z-index:9999;
+
+    animation: snowfall linear forwards;
+}
+
+@keyframes snowfall{
+
+    0%{
+        transform:translateY(-30px) translateX(0);
+        opacity:0;
+    }
+
+    10%{
+        opacity:1;
+    }
+
+    100%{
+        transform:translateY(110vh) translateX(40px);
+        opacity:0;
+    }
+
+   }
